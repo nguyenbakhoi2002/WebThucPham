@@ -1,0 +1,84 @@
+﻿@using X.PagedList.Mvc.Core;
+@model X.PagedList.IPagedList<WebThucPham.Models.Page>;
+
+@{
+    int CurrentPage = ViewBag.CurrentPage;
+    ViewData["Title"] = "Danh sách Page - page:" + CurrentPage;
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="page-header">
+    <div class="header-sub-title">
+        <nav class="breadcrumb breadcrumb-dash">
+            <a asp-area="admin" asp-controller="home" asp-action="index" class="breadcrumb-item"><i class="anticon anticon-home m-r-5"></i>Home</a>
+            <span class="breadcrumb-item active">Danh sách Page : page @CurrentPage</span>
+        </nav>
+    </div>
+</div>
+<div class="card">
+    <div class="card-body">
+        <div class="row m-b-30">
+            <div class="col-lg-8">
+                
+            </div>
+            <div class="col-lg-4 text-right">
+                <a asp-area="admin" asp-controller="adminpages" asp-action="create" class="btn btn-primary">
+                    <i class="anticon anticon-plus-circle m-r-5"></i>
+                    Add Page
+                </a>
+            </div>
+        </div>
+        <div class="table-responsive">
+            <table class="table table-hover e-commerce-table">
+                <thead>
+                    <tr>
+                        <th>Mã Page</th>
+                        <th>Tên Page</th>
+                        <th>Trạng thái</th>
+                        <th>#</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (Model != null)
+                    {
+                        @foreach (var item in Model)
+                        {
+                            string url = $"/page/{item.Alias}";
+                            <tr>
+                                <td>@item.PageId</td>
+                                <td><a target="_blank" href="@url">@item.PageName</a></td>
+                                <td>
+                                    @if(item.Published){
+                                        <div class="d-flex align-items-center">
+                                            <div class="badge badge-success badge-dot m-r-10"></div>
+                                            <div>Được phát hành</div>
+                                        </div>
+                                    }
+                                    else{
+                                        <div class="d-flex align-items-center">
+                                            <div class="badge badge-success badge-dot m-r-10"></div>
+                                            <div>Không xuất bản</div>
+                                        </div>
+                                    }
+                                </td>
+
+                                <td class="text-right">
+                                    <a class="btn btn-success m-r-5" asp-area="admin" asp-controller="AdminPages" asp-action="details" asp-route-id="@item.PageId">View</a>
+                                    <a class="btn btn-primary m-r-5" asp-area="admin" asp-controller="AdminPages" asp-action="edit" asp-route-id="@item.PageId">Edit</a>
+                                    <a class="btn btn-secondary m-r-5" asp-area="admin" asp-controller="AdminPages" asp-action="delete" asp-route-id="@item.PageId">Delete</a>
+                                </td>
+                            </tr>
+                        }
+                    }
+
+
+                </tbody>
+            </table>
+            <div aria-label="Page navigation example">
+                <ul class="pagination">
+                    @Html.PagedListPager(Model, page=>Url.Action("Index", new{page=page}))
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

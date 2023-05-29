@@ -1,0 +1,87 @@
+﻿@using X.PagedList.Mvc.Core;
+@model X.PagedList.IPagedList<WebThucPham.Models.Customer>;
+
+@{
+    int CurrentPage = ViewBag.CurrentPage;
+    ViewData["Title"] = "Danh sách khách hàng" + CurrentPage;
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="page-header">
+    <div class="header-sub-title">
+        <nav class="breadcrumb breadcrumb-dash">
+            <a asp-area="admin" asp-controller="home" asp-action="index" class="breadcrumb-item"><i class="anticon anticon-home m-r-5"></i>Home</a>
+            <span class="breadcrumb-item active">Danh sách khách hàng : page @CurrentPage</span>
+        </nav>
+    </div>
+</div>
+<div class="card">
+    <div class="card-body">
+        <div class="row m-b-30">
+            <div class="col-lg-12">
+                <div class="d-md-flex">
+                    <div class="m-b-10 m-r-15">
+                        <select class="custom-select" style="min-width: 200px;">
+                            <option selected>Catergory</option>
+                            <option value="all">All</option>
+                            <option value="homeDeco">Home Decoration</option>
+                            <option value="eletronic">Eletronic</option>
+                            <option value="jewellery">Jewellery</option>
+                        </select>
+                    </div>
+                    <div class="m-b-10">
+                        <select class="custom-select" style="min-width: 200px;">
+                            <option selected>Status</option>
+                            <option value="all">All</option>
+                            <option value="inStock">In Stock </option>
+                            <option value="outOfStock">Out of Stock</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        <div class="table-responsive">
+            <table class="table table-hover e-commerce-table">
+                <thead>
+                    <tr>
+                        <th>Mã khách</th>
+                        <th>Họ tên</th>
+                        <th>Địa chỉ</th>
+                        @*<th>Tỉnh thành</th>*@
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if(Model != null){
+                        @foreach(var item in Model){
+                            <tr>
+                                <td>@item.CustomerId</td>
+                                <td>
+                                    <p>@item.FullName</p>
+                                    <p>@item.Phone</p>
+                                    <p>@item.Email</p>
+                                </td>
+                                <td>@item.Address</td>
+                                @*<td>@item.Location.Name</td>*@
+
+                                <td class="text-right">
+                                    <a class="btn btn-success m-r-5" asp-area="admin" asp-controller="admincustomers" asp-action="details" asp-route-id="@item.CustomerId">View</a>
+                                    <a class="btn btn-primary m-r-5" asp-area="admin" asp-controller="admincustomers" asp-action="edit" asp-route-id="@item.CustomerId">Edit</a>
+                                    <a class="btn btn-secondary m-r-5" asp-area="admin" asp-controller="admincustomers" asp-action="delete" asp-route-id="@item.CustomerId">Delete</a>
+                                </td>
+                            </tr>
+                        }
+                    }
+                    
+                    
+                </tbody>
+            </table>
+            <div aria-label="Page navigation example">
+                <ul class="pagination">
+                    @Html.PagedListPager(Model, page=>Url.Action("Index", new{page=page}))
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

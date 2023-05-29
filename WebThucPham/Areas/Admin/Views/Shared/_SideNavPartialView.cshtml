@@ -1,0 +1,175 @@
+﻿
+<div class="side-nav">
+    <div class="side-nav-inner">
+        <ul class="side-nav-menu scrollable">
+            <li class="nav-item ">
+                <a class="dropdown-toggle" asp-area="admin" asp-controller="home" asp-action="index">
+                    <span class="icon-holder">
+                        <i class="anticon anticon-dashboard"></i>
+                    </span>
+                    <span class="title">Dashboard</span>
+                    <span class="arrow">
+                        <i class="arrow-icon"></i>
+                    </span>
+                </a>
+                
+            </li>
+            <li class="nav-item dropdown">
+                <a class="dropdown-toggle" asp-area="admin" asp-controller="AdminOrders" asp-action="Index">
+                    <span class="icon-holder">
+                        <i class="anticon anticon-file"></i>
+                    </span>
+                    <span class="title">Quản lý đơn hàng</span>
+                </a>
+
+            </li>
+            
+            <li class="nav-item dropdown">
+                <a class="dropdown-toggle" href="javascript:void(0);">
+                    <span class="icon-holder">
+                        <i class="anticon anticon-build"></i>
+                    </span>
+                    <span class="title">Quản lý sản phẩm</span>
+                    <span class="arrow">
+                        <i class="arrow-icon"></i>
+                    </span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a asp-area="admin" asp-controller="adminproducts" asp-action="index" >Danh sách sản phẩm</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="dropdown-toggle" href="javascript:void(0);">
+                    <span class="icon-holder">
+                        <i class="anticon anticon-hdd"></i>
+                    </span>
+                    <span class="title">Quản lý khách hàng</span>
+                    <span class="arrow">
+                        <i class="arrow-icon"></i>
+                    </span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a asp-area="admin" asp-controller="admincustomers" asp-action="index">Danh sách khách hàng</a>
+                    </li>
+                    <li>
+                        <a href="carousel.html">Tìm kiếm khách hàng</a>
+                    </li>
+                    
+                </ul>
+            </li>
+            @*<li class="nav-item dropdown">
+                <a class="dropdown-toggle" href="javascript:void(0);">
+                    <span class="icon-holder">
+                        <i class="anticon anticon-form"></i>
+                    </span>
+                    <span class="title">Doanh số</span>
+                    <span class="arrow">
+                        <i class="arrow-icon"></i>
+                    </span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a href="form-elements.html">Form Elements</a>
+                    </li>
+                    <li>
+                        <a href="form-layouts.html">Form Layouts</a>
+                    </li>
+                    <li>
+                        <a href="form-validation.html">Form Validation</a>
+                    </li>
+                </ul>
+            </li>*@
+            <li class="nav-item dropdown">
+                <a class="dropdown-toggle" href="javascript:void(0);">
+                    <span class="icon-holder">
+                        <i class="anticon anticon-table"></i>
+                    </span>
+                    <span class="title">Quản lý hệ thống</span>
+                    <span class="arrow">
+                        <i class="arrow-icon"></i>
+                    </span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a asp-area ="admin" asp-controller="adminaccounts" asp-action="index">Quản lý tài khoản</a>
+                    </li>
+                    <li>
+                        <a asp-area="admin" asp-controller="AdminCategories" asp-action="index">Quản lý danh mục</a>
+                    </li>
+                    <li>
+                        <a asp-area="admin" asp-controller="adminroles" asp-action="index">Quản lý quyền truy cập</a>
+                    </li>
+                    <li>
+                        <a href="data-table.html">Quản lý tỉnh/thành</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="dropdown-toggle" href="javascript:void(0);">
+                    <span class="icon-holder">
+                        <i class="anticon anticon-pie-chart"></i>
+                    </span>
+                    <span class="title">Quản lý tin tức</span>
+                    <span class="arrow">
+                        <i class="arrow-icon"></i>
+                    </span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a asp-area="admin" asp-controller="admintindangs" asp-action="index">Quản lý tin  tức</a>
+                    </li>
+                    
+                </ul>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="dropdown-toggle" asp-area="admin" asp-controller="adminpages" asp-action="index">
+                    <span class="icon-holder">
+                        <i class="anticon anticon-file"></i>
+                    </span>
+                    <span class="title">Quản lý Pages</span>
+                </a>
+                
+            </li>
+            @*<li class="nav-item dropdown">
+                <a class="dropdown-toggle" href="javascript:void(0);">
+                    <span class="icon-holder">
+                        <i class="anticon anticon-lock"></i>
+                    </span>
+                    <span class="title">Quản lý shipper</span>
+                    <span class="arrow">
+                        <i class="arrow-icon"></i>
+                    </span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a href="login-1.html">Login 1</a>
+                    </li>
+                    <li>
+                        <a href="login-2.html">Login 2</a>
+                    </li>
+                    <li>
+                        <a href="login-3.html">Login 3</a>
+                    </li>
+                    <li>
+                        <a href="sign-up-1.html">Sign Up 1</a>
+                    </li>
+                    <li>
+                        <a href="sign-up-2.html">Sign Up 2</a>
+                    </li>
+                    <li>
+                        <a href="sign-up-3.html">Sign Up 3</a>
+                    </li>
+                    <li>
+                        <a href="error-1.html">Error 1</a>
+                    </li>
+                    <li>
+                        <a href="error-2.html">Error 2</a>
+                    </li>
+                </ul>
+            </li>*@
+        </ul>
+    </div>
+</div>

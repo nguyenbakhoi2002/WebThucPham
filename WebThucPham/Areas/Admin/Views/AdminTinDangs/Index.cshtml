@@ -1,0 +1,110 @@
+﻿@using X.PagedList.Mvc.Core;
+@model X.PagedList.IPagedList<WebThucPham.Models.TinDang>;
+
+@{
+    int CurrentPage = ViewBag.CurrentPage;
+    ViewData["Title"] = "Quản  lý tin đăng";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="page-header">
+    <div class="header-sub-title">
+        <nav class="breadcrumb breadcrumb-dash">
+            <a asp-area="admin" asp-controller="home" asp-action="index" class="breadcrumb-item"><i class="anticon anticon-home m-r-5"></i>Home</a>
+            <span class="breadcrumb-item active">Danh sách tin đăng : page @CurrentPage</span>
+        </nav>
+    </div>
+</div>
+<div class="card">
+    <div class="card-body">
+        <div class="row m-b-30">
+            <div class="col-lg-8">
+                
+            </div>
+            <div class="col-lg-4 text-right">
+                <a asp-area="admin" asp-controller="admintindangs" asp-action="create" class="btn btn-primary">
+                    <i class="anticon anticon-plus-circle m-r-5"></i>
+                    Add News
+                </a>
+            </div>
+        </div>
+        <div class="table-responsive">
+            <table class="table table-hover e-commerce-table">
+                <thead>
+                    <tr>
+                        <th>Mã </th>
+                        <th>Tiêu đề</th>
+                        <th>Ngày viết</th>
+                        <th>Trạng thái</th>
+                        <th>Tin nóng</th>
+                        <th>#</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (Model != null)
+                    {
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.PostId</td>
+                                <td>
+                                    @item.Title
+                                </td>
+                                <td>
+                                    @item.CreatedDate
+                                </td>
+                                <td>
+                                    @if (item.Published)
+                                    {
+                                        <div class="d-flex align-items-center">
+                                            <div class="badge badge-success badge-dot m-r-10"></div>
+                                            <div>Được xuất bản</div>
+                                        </div>
+                                    }
+                                    else
+                                    {
+                                        <div class="d-flex align-items-center">
+                                            <div class="badge badge-success badge-dot m-r-10"></div>
+                                            <div>Không xuất bản</div>
+                                        </div>
+                                    }
+                                </td>
+                                <td>
+                                    @if (item.IsHot)
+                                    {
+                                        <div class="d-flex align-items-center">
+                                            <div class="badge badge-success badge-dot m-r-10"></div>
+                                            <div>Tin nóng</div>
+                                        </div>
+                                    }
+                                    else
+                                    {
+                                        <div class="d-flex align-items-center">
+                                            <div class="badge badge-success badge-dot m-r-10"></div>
+                                            <div>Tin cũ</div>
+                                        </div>
+                                    }
+                                </td>
+
+                                
+
+                                <td class="text-right">
+                                    <a class="btn btn-success m-r-5" asp-area="admin" asp-controller="admintindangs" asp-action="details" asp-route-id="@item.PostId">View</a>
+                                    <a class="btn btn-primary m-r-5" asp-area="admin" asp-controller="admintindangs" asp-action="edit" asp-route-id="@item.PostId">Edit</a>
+                                    <a class="btn btn-secondary m-r-5" asp-area="admin" asp-controller="admintindangs" asp-action="delete" asp-route-id="@item.PostId">Delete</a>
+                                </td>
+                            </tr>
+                        }
+                    }
+
+
+                </tbody>
+            </table>
+            <div aria-label="Page navigation example">
+                <ul class="pagination">
+                    @Html.PagedListPager(Model, page=>Url.Action("Index", new{page=page}))
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32922.545
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebThucPham", "WebThucPham.csproj", "{335D007A-E517-4D11-B5CC-C6BA641BC9BD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{335D007A-E517-4D11-B5CC-C6BA641BC9BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{335D007A-E517-4D11-B5CC-C6BA641BC9BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{335D007A-E517-4D11-B5CC-C6BA641BC9BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{335D007A-E517-4D11-B5CC-C6BA641BC9BD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {00E6568D-F34C-49E7-9D30-F0057F64B388}
+	EndGlobalSection
+EndGlobal
